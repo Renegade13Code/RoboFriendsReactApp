@@ -4,6 +4,7 @@ import CardList from '../components/cardList';
 import SearchBar from '../components/SearchBar';
 import './app.css';
 import Scroll from '../components/Scroll';
+import ErrorBoundary from '../components/errorBoundary';
 
 class app extends React.Component{
 
@@ -55,7 +56,9 @@ class app extends React.Component{
                         <SearchBar onChangeEvent={this.onChangeEventHandler}/>
                     </div>
                     <Scroll>
-                        <CardList robots={filteredRobots}/>
+                        <ErrorBoundary>
+                            <CardList robots={filteredRobots}/>
+                        </ErrorBoundary>
                     </Scroll>
                 </div>
             );
